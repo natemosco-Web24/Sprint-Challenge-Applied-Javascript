@@ -17,3 +17,53 @@
     <div class="right-button"> > </div>
   </div>
 */
+$ = s => document.createElement(s)
+$$ = s => document.querySelector(s)
+$$$ = s => document.querySelectorAll(s)
+function CarouselMaker() {
+
+  let carousel = $("div")
+  carousel.classList.add("carousel")
+
+  let buttonLeft = $("div")
+  buttonLeft.classList.add("left-button")
+
+  let img = $("img")
+  img.src = "./assets/carousel/mountains.jpeg"
+  img.classList.add("display")
+
+  let img2 = $("img")
+  img2.src = "./assets/carousel/computer.jpeg"
+
+  let img3 = $("img")
+  img3.src = "./assets/carousel/trees.jpeg"
+
+  let img4 = $("img")
+  img4.src = "./assets/carousel/turntable.jpeg"
+
+  let buttonRight = $("div")
+  buttonRight.classList.add("right-button")
+
+  carousel.append(buttonLeft, img, img2, img3, img4, buttonRight)
+
+  $$(".carousel-container").appendChild(carousel)
+
+  let images = $$$("img")
+  let count = 0
+  buttonLeft.addEventListener("click", () => {
+    console.log("left click")
+    $$(".display").classList.toggle("display")
+    count = (count == 0) ? images.length - 1 : count - 1;
+    images[count].classList.toggle("display")
+  })
+  buttonRight.addEventListener("click", () => {
+    console.log("right click")
+    $$(".display").classList.toggle("display")
+    count = (count == images.length - 1) ? 0 : count + 1;
+    images[count].classList.toggle("display")
+  })
+
+
+  return carousel
+}
+CarouselMaker()
