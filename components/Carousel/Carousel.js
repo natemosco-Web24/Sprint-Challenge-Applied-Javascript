@@ -48,17 +48,17 @@ function CarouselMaker() {
 
   $$(".carousel-container").appendChild(carousel)
 
-  let images = ("img")
+  let images = $$$("img")
   let count = 0
   buttonLeft.addEventListener("click", () => {
     console.log("left click")
-    carousel.querySelector(".display").classlist.toggle("display")
+    $$(".display").classList.toggle("display")
     count = (count == 0) ? images.length - 1 : count - 1;
     images[count].classList.toggle("display")
   })
   buttonRight.addEventListener("click", () => {
     console.log("right click")
-    carousel.querySelector(".display").classlist.toggle("display")
+    $$(".display").classList.toggle("display")
     count = (count == images.length - 1) ? 0 : count + 1;
     images[count].classList.toggle("display")
   })
