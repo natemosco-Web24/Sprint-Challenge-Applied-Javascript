@@ -10,9 +10,9 @@
 // And add it to the DOM in the .header-container component
 
 function Header() {
-    $ = s => { document.createElement(s) }
-    $$ = s => { document.querySelector(s) }
-    $$$ = s => { document.querySelectorAll(s) }
+    $ = s => document.createElement(s)
+    $$ = s => document.querySelector(s)
+    $$$ = s => document.querySelectorAll(s)
 
     let header = $("div")
     header.classList.add("header")
@@ -30,3 +30,4 @@ function Header() {
 
     return header
 }
+Header()
