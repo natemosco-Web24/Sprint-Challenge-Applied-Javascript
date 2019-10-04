@@ -20,20 +20,21 @@
 $ = s => document.createElement(s)
 $$ = s => document.querySelector(s)
 $$$ = s => document.querySelectorAll(s)
-function Cards(obj) {
+
+function Card(obj) {
     let card = $("div")
     card.classList.add("card")
     let div = $("div")
     div.classList.add("headline")
-    div.textContent = "headline"
+    div.textContent = obj.headline
     let div2 = $("div")
     div2.classList.add("author")
     let div3 = $("div")
     div3.classList.add("img-container")
     let img = $("img")
-    img.src = "url"
+    img.src = obj.authorPhoto
     let span = $("span")
-    span.textContent = `By authorname`
+    span.textContent = `By ${obj.authorName}`
 
     card.append(div, div2)
     div2.append(div3, span)
@@ -41,3 +42,26 @@ function Cards(obj) {
 
     return card
 }
+axios
+    .get("https://lambda-times-backend.herokuapp.com/articles")
+    .then(res => {
+        console.log("axios CARD response", res)
+        for (topic in res.data.articles) {
+            res.data.articles[topic].map(article => {
+                $$(".cards-container").append(Card(article))
+            })
+        }
+    })
+    //ALTERNATE SOLUTION TO THE PROBLEM OF DEALING WITH AN OBJECT:
+    // .then(res => {
+    //     console.log("axios CARD response", res)
+    //     let object = res.data.articles
+    //     Object.values(object).forEach(topic => {
+    //         topic.map(article => {
+    //             $$(".cards-container").append(Card(article))
+    //         })
+    //     })
+    // })
+    .catch(err => {
+        console.log("axios CARD error", err)
+    })
