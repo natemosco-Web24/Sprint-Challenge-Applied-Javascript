@@ -29,14 +29,16 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager
 
 1. What is the DOM?
-
+    Dom stands for Document Object Model. It is the structure within which all websites are rendered. This has an inherit structure that ties all elements on a page together with parent/child relationships which allows the page to be manipulated. Without the DOM structure there would be no inheritance of properties online. Because the DOM is language agnostic it treats all code as objects and therefore creates a standard interface to reference how to access all provided code on any given webpage.
 2. What is an event?
-
+    An event is any action that falls into the predefined list of possible actions aviailable to be captured or recorded such as those provided by changes from a mouse, keyboard, window-screen or server.
 3. What is an event listener?
-
+    A listener is set in place to flag the occurence of any event such as a mouse click. The use of a listener is to attach a function or piece of data to produce either an action, animation, or aid in the experience of the user on that webpage. The listener simply acts as a trigger and unless otherwise prevented will continue to "listen" for every occurence of the event in question.
 4. Why would we convert a NodeList into an Array?
+    A NodeList by default has only one method available to it: forEach. If you wanted to accumulate, reduce, or use some other method on the list it would not be possible without first converting it into an array.
 
 5. What is a component?
+    a component is a reusable bit of code that performs a specific function. Due to its specificity the component can often be reused again and again. The example of a button component allows for understanding of this. By creating a component that makes a button you need only insert or call that component every time you need a new button on your web page.
 
 ### Git Set up
 
